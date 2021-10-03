@@ -22,6 +22,8 @@ export default class Board extends React.Component<{
 
   render(): JSX.Element {
     const rows: JSX.Element[] = [];
+
+    //Build board from top down, starting with row 8
     for (let y = 8; y > 0; y--) {
       rows.push(this.renderRow(y));
     }

@@ -8,8 +8,10 @@ export default class Rook extends BasePiece {
   }
 
   possibleMoves(): Array<{ x: number; y: number }> {
-    const possibleMoves = this.getVerticalMoves().concat(this.getHorizontalMoves());
-    
+    const possibleMoves = this.getVerticalMoves().concat(
+      this.getHorizontalMoves()
+    );
+
     return this.removeOutOfBoundsMoves(possibleMoves);
   }
 }

@@ -11,7 +11,7 @@ export default class Pawn extends BasePiece {
     this.isFirstMove = true;
   }
 
-  move(toSquare: SquareProps) {
+  move(toSquare: SquareProps): void {
     super.move(toSquare);
     this.isFirstMove = false;
   }
@@ -27,6 +27,7 @@ export default class Pawn extends BasePiece {
       },
     ];
 
+    //Pawn can move 2 squares first time it's moved
     if (this.isFirstMove) {
       possibleMoves.push({
         x: startX,

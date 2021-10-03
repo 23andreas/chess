@@ -15,16 +15,16 @@ export default class King extends BasePiece {
       //horizontal
       { x: startX + 1, y: startY },
       { x: startX - 1, y: startY },
-      
+
       //vertical
       { x: startX, y: startY + 1 },
       { x: startX, y: startY - 1 },
-      
+
       //diagonal
       { x: startX + 1, y: startY + 1 },
       { x: startX + 1, y: startY - 1 },
       { x: startX - 1, y: startY + 1 },
-      { x: startX - 1, y: startY - 1 },    
+      { x: startX - 1, y: startY - 1 },
     ]);
   }
 }

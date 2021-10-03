@@ -11,22 +11,24 @@ export default class BasePiece {
     this.square = square;
   }
 
-  move(toSquare: SquareProps) {
+  move(toSquare: SquareProps): void {
     this.square.piece = null;
     this.square = toSquare;
     this.square.piece = this;
   }
 
+  // This function should be overwritten by child class
   possibleMoves(): Array<{ x: number; y: number }> {
     return [];
   }
 
+  // Used by pieces: queen, rook
   getVerticalMoves(): Array<{ x: number; y: number }> {
     const startX = this.square.x;
     const startY = this.square.y;
     const verticalMoves: Array<{ x: number; y: number }> = [];
 
-    //UP
+    //Up
     for (let up = 1; up + startY <= 8; up++) {
       verticalMoves.push({
         x: startX,
@@ -45,12 +47,13 @@ export default class BasePiece {
     return verticalMoves;
   }
 
+  // Used by pieces: queen, rook
   getHorizontalMoves(): Array<{ x: number; y: number }> {
     const startX = this.square.x;
     const startY = this.square.y;
     const horizontalMoves: Array<{ x: number; y: number }> = [];
 
-    //LEFT
+    //Left
     for (let left = 1; left < startX; left++) {
       horizontalMoves.push({
         x: startX - left,
@@ -58,7 +61,7 @@ export default class BasePiece {
       });
     }
 
-    //RIGHT
+    //Right
     for (let right = 1; startX + right <= 8; right++) {
       horizontalMoves.push({
         x: startX + right,
@@ -69,6 +72,7 @@ export default class BasePiece {
     return horizontalMoves;
   }
 
+  // Used by pieces: queen, bishop
   getDiagonalMoves(): Array<{ x: number; y: number }> {
     const startX = this.square.x;
     const startY = this.square.y;
@@ -103,7 +107,9 @@ export default class BasePiece {
     return diagonalMoves;
   }
 
-  removeOutOfBoundsMoves(coordinates: Array<{ x: number; y: number }>) {
+  removeOutOfBoundsMoves(
+    coordinates: Array<{ x: number; y: number }>
+  ): Array<{ x: number; y: number }> {
     return coordinates.filter((value) => {
       // Remove coordinates outside board
       if (value.x < 1 || value.x > 8 || value.y < 1 || value.y > 8) {

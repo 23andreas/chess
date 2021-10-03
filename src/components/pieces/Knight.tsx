@@ -12,17 +12,17 @@ export default class Knight extends BasePiece {
     const startY = this.square.y;
 
     const possibleMoves = [
-      {x: startX + 2, y: startY + 1},
-      {x: startX + 2, y: startY - 1},
-      
-      {x: startX + 1, y: startY + 2},
-      {x: startX + 1, y: startY - 2},
+      { x: startX + 2, y: startY + 1 },
+      { x: startX + 2, y: startY - 1 },
 
-      {x: startX - 1, y: startY + 2},
-      {x: startX - 1, y: startY - 2},
+      { x: startX + 1, y: startY + 2 },
+      { x: startX + 1, y: startY - 2 },
 
-      {x: startX - 2, y: startY + 1},
-      {x: startX - 2, y: startY - 1},
+      { x: startX - 1, y: startY + 2 },
+      { x: startX - 1, y: startY - 2 },
+
+      { x: startX - 2, y: startY + 1 },
+      { x: startX - 2, y: startY - 1 },
     ];
 
     return this.removeOutOfBoundsMoves(possibleMoves);

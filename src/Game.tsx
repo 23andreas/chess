@@ -47,8 +47,8 @@ export default class Game extends React.Component<unknown, GameStateInterface> {
   }
 
   handleMove(fromSquare: SquareProps, toSquare: SquareProps): void {
-    if(toSquare.selectedPieceCanMoveHere === true){
-      if(fromSquare.piece !== null){
+    if (toSquare.selectedPieceCanMoveHere === true) {
+      if (fromSquare.piece !== null) {
         fromSquare.piece.move(toSquare);
       }
     }
@@ -59,7 +59,7 @@ export default class Game extends React.Component<unknown, GameStateInterface> {
     const selectedSquare = squares[squareIndex];
 
     if (this.state.selectedSquare !== null) {
-      if(this.state.selectedSquare.piece !== null){
+      if (this.state.selectedSquare.piece !== null) {
         this.handleMove(this.state.selectedSquare, selectedSquare);
       }
       this.setState({ selectedSquare: null });
@@ -70,7 +70,7 @@ export default class Game extends React.Component<unknown, GameStateInterface> {
     }
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <div className="container">
         <Board squares={this.state.squares} />
