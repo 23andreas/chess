@@ -6,9 +6,9 @@ import Queen from '../components/pieces/Queen';
 import Rook from '../components/pieces/Rook';
 import { SquareProps } from '../types/SquareProps';
 
-type SquaresList = {[key: number]: SquareProps};
+type SquaresList = { [key: number]: SquareProps };
 
-function buildSquares(onClickHandler){
+function getSquares(onClickHandler) {
   const squares: SquaresList = [];
   for (let y = 8; y > 0; y--) {
     for (let x = 1; x <= 8; x++) {
@@ -38,7 +38,7 @@ function placePiecesFor(color: string, squares: SquaresList): SquaresList {
 function placePawns(squares: SquaresList, color: string): SquaresList {
   const y = color === 'white' ? 2 : 7;
 
-  for(let x = 1; x <= 8; x++){
+  for (let x = 1; x <= 8; x++) {
     const squareIndex = parseInt(`${x}${y}`);
     squares[squareIndex].piece = new Pawn(color, squares[squareIndex]);
   }
@@ -46,55 +46,54 @@ function placePawns(squares: SquaresList, color: string): SquaresList {
   return squares;
 }
 
-function placeRooks(squares: SquaresList, color: string): SquaresList{
+function placeRooks(squares: SquaresList, color: string): SquaresList {
   const y = color == 'white' ? 1 : 8;
 
-  squares[`1${y}`].piece = new Rook(color, squares[`1${y}`]); 
-  squares[`8${y}`].piece = new Rook(color, squares[`8${y}`]); 
+  squares[`1${y}`].piece = new Rook(color, squares[`1${y}`]);
+  squares[`8${y}`].piece = new Rook(color, squares[`8${y}`]);
 
   return squares;
 }
 
-function placeKnights(squares: SquaresList, color: string): SquaresList{
+function placeKnights(squares: SquaresList, color: string): SquaresList {
   const y = color == 'white' ? 1 : 8;
 
-  squares[`2${y}`].piece = new Knight(color, squares[`2${y}`]); 
-  squares[`7${y}`].piece = new Knight(color, squares[`7${y}`]); 
+  squares[`2${y}`].piece = new Knight(color, squares[`2${y}`]);
+  squares[`7${y}`].piece = new Knight(color, squares[`7${y}`]);
 
   return squares;
 }
 
-function placeBishops(squares: SquaresList, color: string): SquaresList{
+function placeBishops(squares: SquaresList, color: string): SquaresList {
   const y = color == 'white' ? 1 : 8;
 
-  squares[`3${y}`].piece = new Bishop(color, squares[`3${y}`]); 
-  squares[`6${y}`].piece = new Bishop(color, squares[`6${y}`]); 
+  squares[`3${y}`].piece = new Bishop(color, squares[`3${y}`]);
+  squares[`6${y}`].piece = new Bishop(color, squares[`6${y}`]);
 
   return squares;
 }
 
-function placeKing(squares: SquaresList, color: string): SquaresList{
+function placeKing(squares: SquaresList, color: string): SquaresList {
   const y = color == 'white' ? 1 : 8;
   const x = color == 'white' ? 5 : 4;
-  squares[`${x}${y}`].piece = new King(color, squares[`${x}${y}`]); 
-  
+  squares[`${x}${y}`].piece = new King(color, squares[`${x}${y}`]);
+
   return squares;
 }
 
-function placeQueen(squares: SquaresList, color: string): SquaresList{
+function placeQueen(squares: SquaresList, color: string): SquaresList {
   const y = color == 'white' ? 1 : 8;
   const x = color == 'white' ? 4 : 5;
 
-  squares[`${x}${y}`].piece = new Queen(color, squares[`${x}${y}`]); 
+  squares[`${x}${y}`].piece = new Queen(color, squares[`${x}${y}`]);
 
   return squares;
 }
 
-export default function getInitialSquares(
+export default function getInitalSquaresState(
   onClickHandler: (squareIndex: number) => void
 ): { [key: number]: SquareProps } {
-  
-  let squares = buildSquares(onClickHandler);
+  let squares = getSquares(onClickHandler);
   squares = placePiecesFor('white', squares);
   squares = placePiecesFor('black', squares);
 

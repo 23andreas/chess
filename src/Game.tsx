@@ -1,6 +1,6 @@
 import React from 'react';
 import Board from './components/Board';
-import getInitialSquares from './builders/SquareBuilder';
+import getInitalSquaresState from './builders/BoardBuilder';
 import { SquareProps } from './types/SquareProps';
 
 interface GameStateInterface {
@@ -18,7 +18,7 @@ export default class Game extends React.Component<unknown, GameStateInterface> {
     this.state = {
       currentPlayer: 'white',
       selectedSquare: null,
-      squares: getInitialSquares(this.handleClick),
+      squares: getInitalSquaresState(this.handleClick),
     };
   }
 
