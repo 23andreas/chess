@@ -23,14 +23,17 @@ export default class Game extends React.Component<unknown, GameStateInterface> {
   }
 
   componentDidUpdate(prevProps: unknown, prevState: GameStateInterface): void {
+    // prevent infinte loop (componentDidUpdate -> setState -> componentDidUpdate) 
     if (prevState.selectedSquare !== this.state.selectedSquare) {
       const squares = this.state.squares;
       const selectedSquare = this.state.selectedSquare;
 
+      // clear all green squares
       for (const key in squares) {
         squares[key].selectedPieceCanMoveHere = false;
       }
-
+      
+      // If piece is selected, mark allowed moves with green squares
       if (selectedSquare !== null && selectedSquare.piece !== null) {
         const possibleMoves = selectedSquare.piece.possibleMoves();
 
