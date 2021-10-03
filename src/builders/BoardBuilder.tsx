@@ -25,7 +25,7 @@ function getSquares(onClickHandler) {
   return squares;
 }
 
-function placePiecesFor(color: string, squares: SquaresList): SquaresList {
+function placePiecesForPlayer(color: string, squares: SquaresList): SquaresList {
   squares = placePawns(squares, color);
   squares = placeRooks(squares, color);
   squares = placeKnights(squares, color);
@@ -93,9 +93,10 @@ function placeQueen(squares: SquaresList, color: string): SquaresList {
 export default function getInitalSquaresState(
   onClickHandler: (squareIndex: number) => void
 ): { [key: number]: SquareProps } {
+  
   let squares = getSquares(onClickHandler);
-  squares = placePiecesFor('white', squares);
-  squares = placePiecesFor('black', squares);
+  squares = placePiecesForPlayer('white', squares);
+  squares = placePiecesForPlayer('black', squares);
 
   return squares;
 }
