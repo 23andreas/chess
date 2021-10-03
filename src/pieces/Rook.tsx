@@ -1,5 +1,5 @@
-import { CoordinatesList } from '../../types/Coordinates';
-import { SquareProps } from '../../types/SquareProps';
+import { CoordinatesList } from '../types/Coordinates';
+import { SquareProps } from '../types/SquareProps';
 import BasePiece from './BasePiece';
 
 export default class Rook extends BasePiece {

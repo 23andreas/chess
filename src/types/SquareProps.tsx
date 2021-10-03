@@ -1,4 +1,4 @@
-import BasePiece from '../components/pieces/BasePiece';
+import BasePiece from '../pieces/BasePiece';
 
 export type SquareProps = {
   x: number,

@@ -1,5 +1,5 @@
-import { SquareProps } from '../../types/SquareProps';
-import { CoordinatesList } from '../../types/Coordinates';
+import { SquareProps } from '../types/SquareProps';
+import { CoordinatesList } from '../types/Coordinates';
 
 export default class BasePiece {
   player: string;

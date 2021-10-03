@@ -1,9 +1,9 @@
-import Bishop from '../components/pieces/Bishop';
-import King from '../components/pieces/King';
-import Knight from '../components/pieces/Knight';
-import Pawn from '../components/pieces/Pawn';
-import Queen from '../components/pieces/Queen';
-import Rook from '../components/pieces/Rook';
+import Bishop from '../pieces/Bishop';
+import King from '../pieces/King';
+import Knight from '../pieces/Knight';
+import Pawn from '../pieces/Pawn';
+import Queen from '../pieces/Queen';
+import Rook from '../pieces/Rook';
 import { SquareProps } from '../types/SquareProps';
 
 type SquaresList = { [key: number]: SquareProps };
