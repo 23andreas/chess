@@ -30,7 +30,3 @@ There's probably more rules not mentioned below that should be implemented.
 
 * [En-passant](https://www.chess.com/terms/en-passant)
 * [Castling](https://en.wikipedia.org/wiki/Castling)
-
-### Note
-  Starting out with this I only knew the basic rules of chess. I did'nt know there were so many different "special moves" and specific rules.
-  There's probably more rules not mentioned above that should be implemented.
