@@ -1,3 +1,4 @@
+import { CoordinatesList } from '../../types/Coordinates';
 import { SquareProps } from '../../types/SquareProps';
 import BasePiece from './BasePiece';
 
@@ -16,7 +17,7 @@ export default class Pawn extends BasePiece {
     this.isFirstMove = false;
   }
 
-  possibleMoves(): Array<{ x: number; y: number }> {
+  possibleMoves(): CoordinatesList {
     const startX = this.square.x;
     const startY = this.square.y;
 

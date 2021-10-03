@@ -1,3 +1,4 @@
+import { CoordinatesList } from '../../types/Coordinates';
 import { SquareProps } from '../../types/SquareProps';
 import BasePiece from './BasePiece';
 
@@ -7,7 +8,7 @@ export default class Bishop extends BasePiece {
     super(player, square, htmlCode);
   }
 
-  possibleMoves(): Array<{ x: number; y: number }> {
+  possibleMoves(): CoordinatesList {
     return this.removeOutOfBoundsMoves(this.getDiagonalMoves());
   }
 }

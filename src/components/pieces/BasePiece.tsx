@@ -1,4 +1,5 @@
 import { SquareProps } from '../../types/SquareProps';
+import { CoordinatesList } from '../../types/Coordinates';
 
 export default class BasePiece {
   player: string;
@@ -18,15 +19,15 @@ export default class BasePiece {
   }
 
   // This function should be overwritten by child class
-  possibleMoves(): Array<{ x: number; y: number }> {
+  possibleMoves(): CoordinatesList {
     return [];
   }
 
   // Used by pieces: queen, rook
-  getVerticalMoves(): Array<{ x: number; y: number }> {
+  getVerticalMoves(): CoordinatesList {
     const startX = this.square.x;
     const startY = this.square.y;
-    const verticalMoves: Array<{ x: number; y: number }> = [];
+    const verticalMoves: CoordinatesList = [];
 
     //Up
     for (let up = 1; up + startY <= 8; up++) {
@@ -48,10 +49,10 @@ export default class BasePiece {
   }
 
   // Used by pieces: queen, rook
-  getHorizontalMoves(): Array<{ x: number; y: number }> {
+  getHorizontalMoves(): CoordinatesList {
     const startX = this.square.x;
     const startY = this.square.y;
-    const horizontalMoves: Array<{ x: number; y: number }> = [];
+    const horizontalMoves: CoordinatesList = [];
 
     //Left
     for (let left = 1; left < startX; left++) {
@@ -73,10 +74,10 @@ export default class BasePiece {
   }
 
   // Used by pieces: queen, bishop
-  getDiagonalMoves(): Array<{ x: number; y: number }> {
+  getDiagonalMoves(): CoordinatesList {
     const startX = this.square.x;
     const startY = this.square.y;
-    const diagonalMoves: Array<{ x: number; y: number }> = [];
+    const diagonalMoves: CoordinatesList = [];
 
     // Add left side diagonal moves
     for (let left = 1; left < startX; left++) {
@@ -107,9 +108,7 @@ export default class BasePiece {
     return diagonalMoves;
   }
 
-  removeOutOfBoundsMoves(
-    coordinates: Array<{ x: number; y: number }>
-  ): Array<{ x: number; y: number }> {
+  removeOutOfBoundsMoves(coordinates: CoordinatesList): CoordinatesList {
     return coordinates.filter((value) => {
       // Remove coordinates outside board
       if (value.x < 1 || value.x > 8 || value.y < 1 || value.y > 8) {

@@ -1,3 +1,4 @@
+import { CoordinatesList } from '../../types/Coordinates';
 import { SquareProps } from '../../types/SquareProps';
 import BasePiece from './BasePiece';
 
@@ -7,8 +8,8 @@ export default class Queen extends BasePiece {
     super(player, square, htmlCode);
   }
 
-  possibleMoves(): Array<{ x: number; y: number }> {
-    let possibleMoves: Array<{ x: number; y: number }> = [];
+  possibleMoves(): CoordinatesList {
+    let possibleMoves: CoordinatesList = [];
 
     possibleMoves = possibleMoves.concat(this.getDiagonalMoves());
     possibleMoves = possibleMoves.concat(this.getHorizontalMoves());
