@@ -4,6 +4,14 @@ Made with [Create React App](https://github.com/facebook/create-react-app)
 When I first started making this I only knew the basic rules of chess. I did not know there were so many different "special moves" and specific rules.
 There's probably more rules not mentioned below that should be implemented.
 
+## Installing and running the game
+    yarn install
+    yarn start
+   or  
+    
+    npm install
+    npm start
+
 ## Current features
 
 * Board
